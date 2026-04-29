@@ -27,7 +27,7 @@ cp "$BASE_PATH/pip.txt" "$BASE_PATH/docker-wine/requirements.txt"
 
 echo "Building image..."
 DOCKER_BUILDKIT=1 docker build \
-    --tag birnbaum01/$IMAGE_NAME \
+    --tag $IMAGE_NAME \
     $BASE_PATH/docker-wine
 err_lvl=$?
 if [ "$err_lvl" = "0" ]; then

@@ -37,10 +37,6 @@ p7zip-full
 pngcheck
 pulseaudio
 pulseaudio-utils
-python3.12
-python3.12-dev
-python3.12-venv
-python3-pip
 rubygems
 steghide
 stegosuite
@@ -49,5 +45,6 @@ tk-dev
 tzdata
 unzip
 winbind
+xdg-utils
 xvfb
 zenity

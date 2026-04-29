@@ -1,7 +1,21 @@
 #!/bin/bash
+
+#pyenv init
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#enter virtual environment
+pyenv activate venv-default
+
+#execution
 if [ "$#" = "0" ]; then
     as4pgc -h
     exit 0
 fi
 as4pgc "$@"
-exit $?
+err_lvl=$?
+
+#leave virtual environment
+source deactivate
+
+exit $err_lvl

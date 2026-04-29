@@ -12,7 +12,7 @@ docker run -it \
     --volume=$(realpath ./io):/home/wineuser/io \
     --cap-add SYS_ADMIN \
     --device /dev/fuse \
-    birnbaum01/$IMAGE_NAME /bin/bash
+    $IMAGE_NAME /bin/bash
 
 #stop running container
 if [ "$(docker container ls | grep "$IMAGE_NAME" | wc -l)" = "1" ]; then

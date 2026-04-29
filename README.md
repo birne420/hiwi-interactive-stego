@@ -39,7 +39,7 @@ interactive docker container featuring many stego-related tools
 | stegdetect/stegbreak | analysis | Images (JPG) | `./stegdetect [-nqV] [-s <float>] [-d <num>] [-t <tests>] [-C <num>] [<stego_file>]`<br/>`./stegbreak [-V] [-r <rules>] [-f <wordlist>] [-t <schemes>] <stego_file>` | https://github.com/abeluck/stegdetect.git |
 | steghide | stego | Images (JPG, BMP), Audio (WAV, AU) | `./steghide --help`<br/>`./steghide embed -ef <message_file> -cf <carrier_file> [-p <key>] -sf <stego_file>`<br/>`./steghide extract -sf <stego_file> [-p <key>] -xf <message_file>` | apt |
 | StegJ | stego | Images (???) | `./StegJ`<br/>`./StegJ -a <algorithm> -i <carrier_file> -f <message_file> -o <stego_file> [-p <key>]`<br/>`./StegJ -a <algorithm> -i <stego_file> -e <output_directory> [-p <key>]` | https://stegj.sourceforge.net/ |
-| stegonaut | stego | Audio (MP3) | `./stegonaut`<br/>GUI | https://github.com/knez/stegonaut.git |
+| stegonaut (2020) | stego | Audio (MP3) | `./stegonaut`<br/>GUI | https://github.com/knez/stegonaut.git |
 | stegosuite | stego | Images (JPG, PNG, BMP, GIF) | `./stegosuite`<br/>GUI | apt |
 | stegoveritas | analysis | Images (JPG, PNG, BMP, GIF, TIFF) | `./stegoveritas -h`<br/>`./stegoveritas [-out <directory>] -meta -imageTransform -extractLSB -extract_frames -trailing -steghide -exif -xmp -carve <stego_file>` | pip |
 | stegpy | stego | Images (PNG, BMP, GIF), Audio (WAV) | `./stegpy -h`<br/>`./stegpy [-b [{1,2,4}]] [-c] <message_file> <carrier_file>` | pip |

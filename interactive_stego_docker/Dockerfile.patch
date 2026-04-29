@@ -72,12 +72,12 @@ FROM python-environment AS git-repositories
     RUN git clone https://github.com/matthewgao/F5-steganography.git /home/bin/f5
     RUN unzip /home/bin/hidereveal-bin-1.7.0.zip -d /home/bin/hidereveal
     RUN git clone https://github.com/RobinDavid/LSB-Steganography.git /home/bin/lsbstego
-    #RUN git clone https://github.com/ImageMagick/ImageMagick.git /home/bin/magick \
-    #    && cd /home/bin/magick \
-    #    && ./configure --with-modules \
-    #    && make && make install \
-    #    && ldconfig /usr/local/lib \
-    #    && cd /
+    RUN git clone https://github.com/ImageMagick/ImageMagick.git /home/bin/magick \
+        && cd /home/bin/magick \
+        && ./configure --with-modules \
+        && make && make install \
+        && ldconfig /usr/local/lib \
+        && cd /
     RUN git clone https://github.com/bh-8/hiwi-jpeg-investigator.git /home/bin/jpeg-investigator
     RUN git clone https://github.com/h3xx/jphs.git /home/bin/jphs \
         && rm -fdr /home/bin/jphs/jpeg-8a/ \
@@ -110,16 +110,17 @@ FROM python-environment AS git-repositories
         && chown -R 1010:1010 /home/bin/Steg-1.1.0.0-Linux-x64/ \
         && chmod a+x /home/bin/Steg-1.1.0.0-Linux-x64/Steg-1.1.0.0-x64.AppImage
     RUN tar -xvzf /home/bin/steganabara-1.1.1.tar.gz -C /home/bin
+    # TODO: fix:
     #RUN git clone https://github.com/abeluck/stegdetect.git /home/bin/stegdetect \
     #    && cd /home/bin/stegdetect \
     #    && autoreconf -f -i \
     #    && linux32 ./configure \
     #    && linux32 make \
     #    && cd /
-    #RUN git clone https://github.com/knez/stegonaut.git /home/bin/stegonaut \
-    #    && cd /home/bin/stegonaut \
-    #    && npm install \
-    #    && cd /
+    RUN tar -xvzf /home/bin/stegonaut.tar.gz -C /home/bin \
+        && cd /home/bin/stegonaut \
+        && npm install \
+        && cd /
     RUN git clone https://github.com/zed-0xff/zsteg.git /home/bin/zsteg \
         && cd /home/bin/zsteg \
         && gem install zsteg \
@@ -134,11 +135,12 @@ FROM python-environment AS git-repositories
         /home/bin/OpenPuff_release.zip \
         /home/bin/OpenStego.deb \
         /home/bin/Steg-1.1.0.0-Linux-x64.tgz \
-        /home/bin/steganabara-1.1.1.tar.gz
+        /home/bin/steganabara-1.1.1.tar.gz \
+        /home/bin/stegonaut.tar.gz
 
 FROM git-repositories AS config
     RUN locale-gen en_US.UTF-8
-    ENV LANG en_US.UTF-8
+    ENV LANG=en_US.UTF-8
     COPY pulse-client.conf /root/pulse/client.conf
     COPY entrypoint.sh /usr/bin/entrypoint
 
